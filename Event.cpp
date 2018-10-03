@@ -1,6 +1,6 @@
 #include "Event.h"
 
-Event::Event(string time, string event, string val = "", dur = 0.0)
+Event::Event(string time, string event, string val, double dur)
 {
     timestamp = time;
     eventtype = event;
@@ -13,8 +13,9 @@ Event::~Event()
     //dtor
 }
 
-displayEvent(){
+void Event::displayEvent()
+{
 
-    cout << "Time: " << time << "\t Event type: " << event << " \t Duration: " << dur << endl;
+    cout << "Time: " << timestamp << "\t Event type: " << eventtype << " \t Duration: " << duration << endl;
 
 }

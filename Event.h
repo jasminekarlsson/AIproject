@@ -7,9 +7,9 @@ using namespace std;
 class Event
 {
     public:
-        Event(string time, string event, string val = "", dur = 0.0);
+        Event(string time = "", string event = "", string val = "", double dur = 0);
         virtual ~Event();
-        displayEvent();
+        void displayEvent();
 
     protected:
 
@@ -17,7 +17,7 @@ class Event
     string timestamp;
     string eventtype;
     string value;
-    double duration
+    double duration;
 };
 
 #endif // EVENT_H
