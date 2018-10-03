@@ -13,6 +13,26 @@ Event::~Event()
     //dtor
 }
 
+void Event::setTimestamp(string time)
+{
+	timestamp = time;
+}
+
+void Event::setEventtype(string event)
+{
+	eventtype = event;
+}
+
+void Event::setValue(string val)
+{
+	value = val;
+}
+
+void Event::setDuration(double dur)
+{
+	duration = dur;
+}
+
 void Event::displayEvent()
 {
 
