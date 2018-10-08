@@ -79,20 +79,19 @@ Node *Node::readNext()
 	{
 		cout << "Not completed, goes to child" << endl;
 		//finns barn?
-		child->readNext();
+		return child->readNext();
 	}
 	//inte completed, det finns inga barn --> den här ska rekommenderas
-	/*else if(!completed)
+	else if(!completed)
 	{
 		cout << "Not completed, no children - I am going to recommend this" << endl;
 		return this;
-	} */
-
+	} 
 	//true, det finns syskon
 	else if (completed && sibling != nullptr)
 	{
 		cout << "Completed, goes to sibling" << endl;
-		sibling->readNext();
+		return sibling->readNext();
 	}
 	
 	else if (sibling == nullptr && completed)

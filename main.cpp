@@ -15,13 +15,13 @@ int main()
 	Node B1("B1", false, 0.0, &A1);
 	Node B2("B2", false, 0.0, &A1);
 
-	Node C1("C1", false, 0.0, &B1);
+	Node C1("C1", true, 0.0, &B1);
 	Node C2("C2", false, 0.0, &B1);
 
 	Node C3("C3", false, 0.0, &B2);
 	Node C4("C4", false, 0.0, &B2);
 
-	Node D1("D1", false, 0.0, &C1);
+	Node D1("D1", true, 0.0, &C1);
 	Node D2("D2", false, 0.0, &C1);
 
 	Node D3("D3", false, 0.0, &C2);
@@ -36,7 +36,7 @@ int main()
 	Node D9("D9", false, 0.0, &C4);
 	Node D10("D10", false, 0.0, &C4);
 
-	Node E1("E1", false, 0.0, &D1);
+	Node E1("E1", true, 0.0, &D1);
 	Node E2("E2", false, 0.0, &D1);
 	Node E3("E3", false, 0.0, &D1);
 
