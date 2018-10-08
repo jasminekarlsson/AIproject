@@ -58,6 +58,56 @@ Node *Node::getChild()
 	return child;
 }
 
+bool Node::getCompleted()
+{
+	return completed;
+}
+
+Node *Node::readNext()
+{
+	//börja på roten
+
+	//base case, det finns inga barn
+	if (!completed && child == nullptr)
+	{
+		cout << "Not completed, no children - I am going to recommend this" << endl;
+		return this;
+	}
+
+	//false, gå till barn
+	if(!completed && child != nullptr)
+	{
+		cout << "Not completed, goes to child" << endl;
+		//finns barn?
+		child->readNext();
+	}
+	//inte completed, det finns inga barn --> den här ska rekommenderas
+	/*else if(!completed)
+	{
+		cout << "Not completed, no children - I am going to recommend this" << endl;
+		return this;
+	} */
+
+	//true, det finns syskon
+	else if (completed && sibling != nullptr)
+	{
+		cout << "Completed, goes to sibling" << endl;
+		sibling->readNext();
+	}
+	
+	else if (sibling == nullptr && completed)
+	{
+		//true, det finns inga syskon --> hela boken är utläst
+		cout << "Completed, no sibligs, you know the whole book" << endl;
+		return nullptr;
+	} 
+	
+	cout << "Why are you even here?" << endl;
+	return nullptr;
+
+}
+
+
 void Node::printName()
 {
 	cout << name;

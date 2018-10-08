@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
 
-	//create a class with a string, a bool and a double, parent, sibling, child
+	//create a class with a string (name), a bool (completed) and a double (certainty), parent, sibling, child
 
 
 	Node A1("A1", false, 0.0, nullptr);
@@ -76,52 +76,19 @@ int main()
 	Node E29("E29", false, 0.0, &D10);
 	Node E30("E30", false, 0.0, &D10);
 
-	D3.getChild()->printName();
+	//loopa igenom trädet, föreslå läsning
+	Node *whatToRead = A1.readNext();
+
+	if(!whatToRead)
+	{
+		cout << "You know everything!" << endl;
+	}
+	else
+	{
+		whatToRead->printName();	
+	}
+	
 	cout << endl;
-
-
-
-    /*cout << "Hello world! How are you?" << endl;
-    Event party("09:41:19.635","En fest","",50.0);
-    //party.displayEvent();
-
-    ifstream file ( "LIU1_2018-02-19.log_sc.csv" );		//timestamp, event, value, duration of event
-	string line, lineSeg;
-	vector<Event> eventVector;
-
-	if (file.is_open())
-  	{
-	    while ( getline (file,line, ',') )	//read one line, separate when there is a ','
-	    { 
-	    	Event lineEvent; */
-	    	//save into the class Event (skip first line?)
-	    	/*if(split(lineSeg, line, (',')))
-	    	{
-	    		lineEvent.setTimestamp(lineSeg);
-	    	}
-	    	if(split(lineSeg, line, (',')))
-	    	{
-	    		lineEvent.setEventtype(lineSeg);
-	    	}
-	    	if(split(lineSeg, line, (',')))
-	    	{
-	    		lineEvent.setValue(lineSeg);
-	    	}
-	    	if(split(lineSeg, line, (',')))
-	    	{
-	    		double lineDur = stod(lineSeg);
-	    		if (!lineDur) 
-	    		{
-	    			lineDur = 0;
-	    		}
-	    		lineEvent.setDuration(lineDur);
-	    	} */
-
-/*
-	      	cout << line << '\n';
-	    }
-	    file.close();
-	} */
 
     return 0;
 }

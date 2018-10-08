@@ -17,6 +17,9 @@ class Node
         Node *getParent();
         Node *getSibling();
         Node *getChild();
+        bool getCompleted();
+
+        Node *readNext();
         
         void printName();
 
