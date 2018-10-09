@@ -2,6 +2,7 @@
 #define NODE_H
 
 #include <iostream>
+#include <iomanip> 
 using namespace std;
 
 	
@@ -18,6 +19,10 @@ class Node
         Node *getSibling();
         Node *getChild();
         bool getCompleted();
+		void checkCompleted();
+		void calculateCertainty();
+		void changeCertainty(double cer);
+		
 
         Node *readNext();
         

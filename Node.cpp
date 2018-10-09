@@ -35,12 +35,12 @@ Node::~Node()
 
 void Node::setChild(Node *chi)
 {
-	this->child = chi;
+	child = chi;
 }
 
 void Node::setSibling(Node *sib)
 {
-	this->sibling = sib;
+	sibling = sib;
 }
 
 Node *Node::getParent()
@@ -61,6 +61,70 @@ Node *Node::getChild()
 bool Node::getCompleted()
 {
 	return completed;
+}
+
+void Node::checkCompleted()
+{
+	if (certainty == 1)
+	{
+		completed = true;
+	}
+}
+
+void Node::calculateCertainty()
+{
+	if (child == nullptr)
+	{
+		cout << "No children to calculate Curtainity from" << endl;
+		return;
+	}
+
+	Node *ndChild = child;
+	int nrChild = 0;
+	double sumCert = 0;
+
+	while (ndChild != nullptr)
+	{
+		sumCert += ndChild->certainty;
+		nrChild++;
+		ndChild = ndChild->sibling;
+	}
+
+	certainty = sumCert / nrChild;
+	checkCompleted();
+
+	cout << "Node " << name << " has now certainty " << setprecision(2) << certainty*100 << " %" << endl;
+
+}
+
+void Node::changeCertainty(double cert)
+{
+	if (child != nullptr)
+	{
+		cout << "This node is not a base and cant be changed" << endl;
+		return;
+	}
+	else if (cert < 0 || cert > 1)
+	{
+		cout << "Invalid certanity, choose a value between 0 and 1" << endl;
+		return;
+	}
+
+	certainty = cert;
+	checkCompleted();
+
+	cout << "Node " << name << " has now certainty " << setprecision(2) << certainty * 100 << " %" << endl;
+
+
+	Node *par = parent;
+
+	while (par != nullptr)
+	{
+		par->calculateCertainty();
+		par = par->parent;
+	}
+	
+
 }
 
 Node *Node::readNext()
@@ -111,3 +175,5 @@ void Node::printName()
 {
 	cout << name;
 }
+
+
