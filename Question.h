@@ -7,15 +7,18 @@ class Node;
 class Question
 {
     public:
-		Question(string q, int ans, Node *nd);
+		Question(string q, double ans);
         virtual ~Question();
+
+        string getQuestion();
+        double getAnswer();
 
     protected:
 
     private:
 		string quest;
-		int answer;
-		Node *master;
+		double answer;
+		
 
 };
 

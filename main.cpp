@@ -37,86 +37,77 @@ int main()
 	Node D9("D9", &C4, nullptr);
 	Node D10("D10", &C4, nullptr);
 
-	Node E1("E1", &D1, nullptr);
-	Node E2("E2", &D1, nullptr);
-	Node E3("E3", &D1, nullptr);
+	Question qE1("3 + X = 10. X = ?", 7);
+	Question qE2("4 + X = 10. X = ?", 6);		//6
+	Question qE3 ("5 + X = 10. X = ?", 5);		//5
+	Node E1("E1", &D1, &qE1);
+	Node E2("E2", &D1, &qE2);
+	Node E3("E3", &D1, &qE3);
 
-	Node E4("E4", &D2, nullptr);
-	Node E5("E5", &D2, nullptr);
-	Node E6("E6", &D2, nullptr);
+	Question qE4("23 + 15 = ?", 38);				//38
+	Question qE5("58 + 37 = ?", 95);				//95
+	Question qE6("12 + 90 = ?", 102);				//102
+	Node E4("E4", &D2, &qE4);
+	Node E5("E5", &D2, &qE5);
+	Node E6("E6", &D2, &qE6);
 
-	Node E7("E7", &D3, nullptr);
-	Node E8("E8", &D3, nullptr);
-	Node E9("E9", &D3, nullptr);
+	Question qE7("10 - 5 = ?", 5);				//5
+	Question qE8("10 - 2 = ?", 8);				//8
+	Question qE9("10 - 8 = ?", 2);				//2
+	Node E7("E7", &D3, &qE7);
+	Node E8("E8", &D3, &qE8);
+	Node E9("E9", &D3, &qE9);
 
-	Node E10("E10", &D4, nullptr);
-	Node E11("E11", &D4, nullptr);
-	Node E12("E12", &D4, nullptr);
+	Question qE10("73 - 51 = ?", 22);			//22
+	Question qE11("62 - 37 = ?", 25);			//25
+	Question qE12("98 - 17 = ?", 81);			//81
+	Node E10("E10", &D4, &qE10);
+	Node E11("E11", &D4, &qE11);
+	Node E12("E12", &D4, &qE12);
 
-	Node E13("E13", &D5, nullptr);
-	Node E14("E14", &D5, nullptr);
-	Node E15("E15", &D5, nullptr);
+	Question qE13("2 * 2 = ?", 4);				//4
+	Question qE14("2 * 8 = ?", 16);				//16
+	Question qE15("2 * 7 = ?", 14);				//14
+	Node E13("E13", &D5, &qE13);
+	Node E14("E14", &D5, &qE14);
+	Node E15("E15", &D5, &qE15);
 
-	Node E16("E16", &D6, nullptr);
-	Node E17("E17", &D6, nullptr);
-	Node E18("E18", &D6, nullptr);
+	Question qE16("3 * 5 = ?", 15);				//15
+	Question qE17("8 * 8 = ?", 64);				//64
+	Question qE18("6 * 5 = ?", 30);				//30
+	Node E16("E16", &D6, &qE16);
+	Node E17("E17", &D6, &qE17);
+	Node E18("E18", &D6, &qE18);
 
-	Node E19("E19", &D7, nullptr);
-	Node E20("E20", &D7, nullptr);
-	Node E21("E21", &D7, nullptr);
+	Question qE19("4 * 10 = ?", 40);				//40
+	Question qE20("7 * 10 = ?", 70);				//70
+	Question qE21("10 * 10 = ?", 100);			//100
+	Node E19("E19", &D7, &qE19);
+	Node E20("E20", &D7, &qE20);
+	Node E21("E21", &D7, &qE21);
 
-	Node E22("E22", &D8, nullptr);
-	Node E23("E23", &D8, nullptr);
-	Node E24("E24", &D8, nullptr);
+	Question qE22("4 * 4 = ?", 16);				//16
+	Question qE23("3 * 6 = ?", 18);				//18
+	Question qE24("7 * 8 = ?", 56);				//56
+	Node E22("E22", &D8, &qE22);
+	Node E23("E23", &D8, &qE23);
+	Node E24("E24", &D8, &qE24);
 
-	Node E25("E25", &D9, nullptr);
-	Node E26("E26", &D9, nullptr);
-	Node E27("E27", &D9, nullptr);
+	Question qE25("10 / 5 = ?", 2);				//2
+	Question qE26("8 / 2 = ?", 4);				//4
+	Question qE27("9 / 3 = ?", 3);				//3
+	Node E25("E25", &D9, &qE25);
+	Node E26("E26", &D9, &qE26);
+	Node E27("E27", &D9, &qE27);
 
-	Node E28("E28", &D10, nullptr);
-	Node E29("E29", &D10, nullptr);
-	Node E30("E30", &D10, nullptr);
-
-	string qE1 = "3 + X = 10. X = ?";		//7
-	string qE2 = "4 + X = 10. X = ?";		//6
-	string qE3 = "5 + X = 10. X = ?";		//5
-
-	string qE4 = "23 + 15 = ?";				//38
-	string qE5 = "58 + 37 = ?";				//95
-	string qE6 = "12 + 90 = ?";				//102
-
-	string qE7 = "10 - 5 = ?";				//5
-	string qE8 = "10 - 2 = ?";				//8
-	string qE9 = "10 - 8 = ?";				//2
-
-	string qE10 = "73 - 51 = ?";			//22
-	string qE11 = "62 - 37 = ?";			//25
-	string qE12 = "98 - 17 = ?";			//81
+	Question qE28("80 / 40 = ?", 2);			//2
+	Question qE29("81 / 9 = ?", 9);				//9
+	Question qE30("49 / 7 = ?", 7);				//7
+	Node E28("E28", &D10, &qE28);
+	Node E29("E29", &D10, &qE29);
+	Node E30("E30", &D10, &qE30);
 	
-	string qE13 = "2 * 2 = ?";				//4
-	string qE14 = "2 * 8 = ?";				//16
-	string qE15 = "2 * 7 = ?";				//14
-
-	string qE16 = "3 * 5 = ?";				//15
-	string qE17 = "8 * 8 = ?";				//64
-	string qE18 = "6 * 5 = ?";				//30
-
-	string qE19 = "4 * 10 = ?";				//40
-	string qE20 = "7 * 10 = ?";				//70
-	string qE21 = "10 * 10 = ?";			//100
-
-	string qE22 = "4 * 4 = ?";				//16
-	string qE23 = "3 * 6 = ?";				//18
-	string qE24 = "7 * 8 = ?";				//56
-
-	string qE25 = "10 / 5 = ?";				//2
-	string qE26 = "8 / 2 = ?";				//4
-	string qE27 = "9 / 3 = ?";				//3
-
-	string qE28 = "80 / 40 = ?";			//2
-	string qE29 = "81 / 9 = ?";				//9
-	string qE30 = "49 / 7 = ?";				//7
-
+	//A1.changeCertainty(1);
 
 	/*E30.changeCertainty(1);
 	C1.changeCertainty(1);
@@ -139,8 +130,19 @@ int main()
 	}
 	 */
 
+	E1.changeCertainty(1);
+	E2.changeCertainty(1);
+	E3.changeCertainty(1);
+	E4.changeCertainty(1);
+	E5.changeCertainty(1);
+	E6.changeCertainty(1);
+	E7.changeCertainty(1);
+	E8.changeCertainty(1);
+	E9.changeCertainty(1);
+	E10.changeCertainty(1);
+	E11.changeCertainty(1);
 
-	//loopa igenom trädet, föreslå läsning
+	//loop through tree, suggest reading
 	Node *whatToRead = A1.readNext();
 
 	if(!whatToRead)
@@ -175,13 +177,14 @@ int main()
 			cout << " next." << endl;
 			break;
 		case 2:
-			cout << "Skriv ut fråga här" << endl;
+			read->printQuestion();
+			cout << endl;
 			cin >> answer;
 
-			if (answer == 0) //Ändra till rätt svar här
+			if (answer == read->getAnswer()) //Ändra till rätt svar här
 			{
 				cout << "Your answer is correct" << endl;
-				//changeCertainty(1) på noden  
+				read->changeCertainty(1);
 			}
 			else
 			{
@@ -192,6 +195,8 @@ int main()
 		default:
 			break;
 		}
+
+		//Error when we know the whole tree (it breakes before we can exit the program)
 
 	}
 

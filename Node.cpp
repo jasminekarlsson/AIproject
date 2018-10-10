@@ -10,6 +10,8 @@ Node::Node(string nam, Node *par, Question *quest)
     child = nullptr;
     question = quest;
 
+
+
     if( parent != nullptr && parent->child != nullptr)
     {
     	Node *tempSib = parent->child;
@@ -42,6 +44,11 @@ void Node::setChild(Node *chi)
 void Node::setSibling(Node *sib)
 {
 	sibling = sib;
+}
+
+void Node::setDependency(Dependency depnd)
+{
+	dependens.push_back(depnd);
 }
 
 Node *Node::getParent()
@@ -172,6 +179,17 @@ Node *Node::readNext()
 void Node::printName()
 {
 	cout << name;
+}
+
+
+void Node::printQuestion()
+{
+	cout << question->getQuestion();
+}
+
+double Node::getAnswer()
+{
+	return question->getAnswer();
 }
 
 

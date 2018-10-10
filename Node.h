@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip> 
 #include "Question.cpp"
+#include "Dependency.cpp"
 using namespace std;
 
 	
@@ -16,6 +17,7 @@ class Node
 
         void setChild(Node *chi);
         void setSibling(Node *sib);
+        void setDependency(Dependency depnd);
         Node *getParent();
         Node *getSibling();
         Node *getChild();
@@ -28,6 +30,8 @@ class Node
         Node *readNext();
         
         void printName();
+        void printQuestion();
+        double getAnswer();
 
     protected:
 
@@ -39,6 +43,7 @@ class Node
     Node *sibling;
     Node *child;
     Question *question;
+    vector<Dependency> dependens;      //one dependent contains pointer to node and a double
 };
 
 #endif // NODE_H
