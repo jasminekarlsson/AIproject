@@ -1,6 +1,6 @@
 #include "Question.h"
 
-Question::Question(string q, int ans, Node &nd)
+Question::Question(string q, int ans, Node *nd)
 {
     //ctor
 	quest = q; 

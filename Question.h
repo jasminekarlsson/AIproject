@@ -5,7 +5,7 @@
 class Question
 {
     public:
-		Question(string q, int ans, Node &nd);
+		Question(string q, int ans, Node *nd);
         virtual ~Question();
 
     protected:
