@@ -1,6 +1,8 @@
 #ifndef QUESTION_H
 #define QUESTION_H
+using namespace std;
 
+class Node;
 
 class Question
 {

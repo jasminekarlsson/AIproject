@@ -1,13 +1,14 @@
 #include "Node.h"
 
-Node::Node(string nam, bool comp, double cert, Node *par)
+Node::Node(string nam, Node *par, Question *quest)
 {
     name = nam;
-    completed = comp;
-    certainty = cert;
+    completed = false;
+    certainty = 0.0;
     parent = par;
     sibling = nullptr;
     child = nullptr;
+    question = quest;
 
     if( parent != nullptr && parent->child != nullptr)
     {

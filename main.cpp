@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 #include "Node.cpp"
-#include "Question.cpp"
+//#include "Question.cpp"
 using namespace std;
 
 int main()
@@ -11,71 +11,71 @@ int main()
 	//create a class with a string (name), a bool (completed) and a double (certainty), parent, sibling, child
 
 
-	Node A1("A1", false, 0.0, nullptr);
+	Node A1("A1", nullptr, nullptr);
 
-	Node B1("B1", false, 0.0, &A1);
-	Node B2("B2", false, 0.0, &A1);
+	Node B1("B1", &A1, nullptr);
+	Node B2("B2", &A1, nullptr);
 
-	Node C1("C1", false, 0.0, &B1);
-	Node C2("C2", false, 0.0, &B1);
+	Node C1("C1", &B1, nullptr);
+	Node C2("C2", &B1, nullptr);
 
-	Node C3("C3", false, 0.0, &B2);
-	Node C4("C4", false, 0.0, &B2);
+	Node C3("C3", &B2, nullptr);
+	Node C4("C4", &B2, nullptr);
 
-	Node D1("D1", false, 0.0, &C1);
-	Node D2("D2", false, 0.0, &C1);
+	Node D1("D1", &C1, nullptr);
+	Node D2("D2", &C1, nullptr);
 
-	Node D3("D3", false, 0.0, &C2);
-	Node D4("D4", false, 0.0, &C2);
+	Node D3("D3", &C2, nullptr);
+	Node D4("D4", &C2, nullptr);
 
-	Node D5("D5", false, 0.0, &C3);
-	Node D6("D6", false, 0.0, &C3);
+	Node D5("D5", &C3, nullptr);
+	Node D6("D6", &C3, nullptr);
 
-	Node D7("D7", false, 0.0, &C3);
-	Node D8("D8", false, 0.0, &C3);
+	Node D7("D7", &C3, nullptr);
+	Node D8("D8", &C3, nullptr);
 
-	Node D9("D9", false, 0.0, &C4);
-	Node D10("D10", false, 0.0, &C4);
+	Node D9("D9", &C4, nullptr);
+	Node D10("D10", &C4, nullptr);
 
-	Node E1("E1", false, 0.0, &D1);
-	Node E2("E2", false, 0.0, &D1);
-	Node E3("E3", false, 0.0, &D1);
+	Node E1("E1", &D1, nullptr);
+	Node E2("E2", &D1, nullptr);
+	Node E3("E3", &D1, nullptr);
 
-	Node E4("E4", false, 0.0, &D2);
-	Node E5("E5", false, 0.0, &D2);
-	Node E6("E6", false, 0.0, &D2);
+	Node E4("E4", &D2, nullptr);
+	Node E5("E5", &D2, nullptr);
+	Node E6("E6", &D2, nullptr);
 
-	Node E7("E7", false, 0.0, &D3);
-	Node E8("E8", false, 0.0, &D3);
-	Node E9("E9", false, 0.0, &D3);
+	Node E7("E7", &D3, nullptr);
+	Node E8("E8", &D3, nullptr);
+	Node E9("E9", &D3, nullptr);
 
-	Node E10("E10", false, 0.0, &D4);
-	Node E11("E11", false, 0.0, &D4);
-	Node E12("E12", false, 0.0, &D4);
+	Node E10("E10", &D4, nullptr);
+	Node E11("E11", &D4, nullptr);
+	Node E12("E12", &D4, nullptr);
 
-	Node E13("E13", false, 0.0, &D5);
-	Node E14("E14", false, 0.0, &D5);
-	Node E15("E15", false, 0.0, &D5);
+	Node E13("E13", &D5, nullptr);
+	Node E14("E14", &D5, nullptr);
+	Node E15("E15", &D5, nullptr);
 
-	Node E16("E16", false, 0.0, &D6);
-	Node E17("E17", false, 0.0, &D6);
-	Node E18("E18", false, 0.0, &D6);
+	Node E16("E16", &D6, nullptr);
+	Node E17("E17", &D6, nullptr);
+	Node E18("E18", &D6, nullptr);
 
-	Node E19("E19", false, 0.0, &D7);
-	Node E20("E20", false, 0.0, &D7);
-	Node E21("E21", false, 0.0, &D7);
+	Node E19("E19", &D7, nullptr);
+	Node E20("E20", &D7, nullptr);
+	Node E21("E21", &D7, nullptr);
 
-	Node E22("E22", false, 0.0, &D8);
-	Node E23("E23", false, 0.0, &D8);
-	Node E24("E24", false, 0.0, &D8);
+	Node E22("E22", &D8, nullptr);
+	Node E23("E23", &D8, nullptr);
+	Node E24("E24", &D8, nullptr);
 
-	Node E25("E25", false, 0.0, &D9);
-	Node E26("E26", false, 0.0, &D9);
-	Node E27("E27", false, 0.0, &D9);
+	Node E25("E25", &D9, nullptr);
+	Node E26("E26", &D9, nullptr);
+	Node E27("E27", &D9, nullptr);
 
-	Node E28("E28", false, 0.0, &D10);
-	Node E29("E29", false, 0.0, &D10);
-	Node E30("E30", false, 0.0, &D10);
+	Node E28("E28", &D10, nullptr);
+	Node E29("E29", &D10, nullptr);
+	Node E30("E30", &D10, nullptr);
 
 	string qE1 = "3 + X = 10. X = ?";		//7
 	string qE2 = "4 + X = 10. X = ?";		//6

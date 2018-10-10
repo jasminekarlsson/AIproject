@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip> 
+#include "Question.cpp"
 using namespace std;
 
 	
@@ -10,7 +11,7 @@ class Node
 {
     public:
     	
-        Node(string nam = "", bool comp = false, double cert = 0, Node *par = nullptr);
+        Node(string nam = "", Node *par = nullptr, Question *quest = nullptr);
         virtual ~Node();
 
         void setChild(Node *chi);
@@ -37,6 +38,7 @@ class Node
     Node *parent;
     Node *sibling;
     Node *child;
+    Question *question;
 };
 
 #endif // NODE_H
