@@ -154,5 +154,42 @@ int main()
 
 	
 
+	int choice = 0;
+	Node *read = nullptr;
+
+	while(choice != 3){
+
+		cout << "-----------Choose what you want to do:-----------" << endl << "1. Check what to read next"
+			<< endl << "2. Answer next question" << endl << "3. End program" << endl;
+		cin >> choice;
+
+		 
+
+		switch (choice)
+		{
+		case 1:
+			read = A1.readNext();
+			int answer;
+			cout << "You should read ";
+			read->printName();
+			cout << " next." << endl;
+			break;
+		case 2:
+			cout << "Skriv ut fråga här" << endl;
+			cin >> answer;
+
+			if (answer == 0) //Ändra till rätt svar här
+			{
+				//changeCertainty(1) på noden  
+			}
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+
     return 0;
 }
