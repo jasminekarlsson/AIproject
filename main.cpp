@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include "Node.cpp"
+#include "Question.cpp"
 using namespace std;
 
 int main()
@@ -150,16 +151,15 @@ int main()
 
 	while(choice != 3){
 
-		cout << "-----------Choose what you want to do:-----------" << endl << "1. Check what to read next"
+		cout << endl << endl << "-----------Choose what you want to do:-----------" << endl << "1. Check what to read next"
 			<< endl << "2. Answer next question" << endl << "3. End program" << endl;
 		cin >> choice;
 
-		 
+		read = A1.readNext();
 
 		switch (choice)
 		{
 		case 1:
-			read = A1.readNext();
 			int answer;
 			cout << "You should read ";
 			read->printName();
@@ -171,7 +171,12 @@ int main()
 
 			if (answer == 0) //Ändra till rätt svar här
 			{
+				cout << "Your answer is correct" << endl;
 				//changeCertainty(1) på noden  
+			}
+			else
+			{
+				cout << "Your answer is incorrect." << endl;
 			}
 			break;
 

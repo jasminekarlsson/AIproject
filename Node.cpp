@@ -105,12 +105,12 @@ void Node::changeCertainty(double cert)
 {
 	if (child != nullptr)	//is not a leaf
 	{
-		cout << "This node is not a base and cant be changed" << endl;
+		cout << "Error: This node is not a base and cant be changed" << endl;
 		return;
 	}
 	else if (cert < 0 || cert > 1)	//wrong input
 	{
-		cout << "Invalid certanity, choose a value between 0 and 1" << endl;
+		cout << "Error: Invalid certanity, choose a value between 0 and 1" << endl;
 		return;
 	}
 
@@ -137,34 +137,28 @@ Node *Node::readNext()
 	//base case, there are no children
 	if (!completed && child == nullptr)
 	{
-		cout << "Not completed, no children - I am going to recommend this" << endl;
 		return this;
 	}
 
 	//false, go to child
 	if(!completed && child != nullptr)
 	{
-		cout << "Not completed, goes to child" << endl;
 		//finns barn?
 		return child->readNext();
 	}
 	//not completed, there are no children --> recommend this
 	else if(!completed)
 	{
-		cout << "Not completed, no children - I am going to recommend this" << endl;
 		return this;
 	} 
 	//true, there are siblings
 	else if (completed && sibling != nullptr)
 	{
-		cout << "Completed, goes to sibling" << endl;
 		return sibling->readNext();
 	}
-	
 	else if (sibling == nullptr && completed)
 	{
 		//true, there are no siblings --> the whole book is finished
-		cout << "Completed, no sibligs, you know the whole book" << endl;
 		return nullptr;
 	} 
 	
