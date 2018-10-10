@@ -125,7 +125,7 @@ int main()
 	E9.changeCertainty(1);
 	cout << endl; */
 
-	double answer;
+	/* double answer;
 	//Create a program that asks user questions
 	cout << qE1 << endl;
 	cin >> answer;
@@ -136,7 +136,7 @@ int main()
 		E1.changeCertainty(1);
 		cout << "You answered correctly!" << endl;
 	}
-	
+	 */
 
 
 	//loopa igenom trädet, föreslå läsning
