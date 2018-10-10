@@ -15,13 +15,13 @@ int main()
 	Node B1("B1", false, 0.0, &A1);
 	Node B2("B2", false, 0.0, &A1);
 
-	Node C1("C1", true, 0.0, &B1);
+	Node C1("C1", false, 0.0, &B1);
 	Node C2("C2", false, 0.0, &B1);
 
 	Node C3("C3", false, 0.0, &B2);
 	Node C4("C4", false, 0.0, &B2);
 
-	Node D1("D1", true, 0.0, &C1);
+	Node D1("D1", false, 0.0, &C1);
 	Node D2("D2", false, 0.0, &C1);
 
 	Node D3("D3", false, 0.0, &C2);
@@ -76,6 +76,60 @@ int main()
 	Node E29("E29", false, 0.0, &D10);
 	Node E30("E30", false, 0.0, &D10);
 
+	string qE1 = "3 + X = 10. X = ?";
+	string qE2 = "4 + X = 10. X = ?";
+	string qE3 = "5 + X = 10. X = ?";
+	string qE4 = "";
+	string qE5 = "";
+	string qE6 = "";
+	string qE7 = "";
+	string qE8 = "";
+	string qE9 = "";
+	string qE10 = "";
+	string qE11 = "";
+	string qE12 = "";
+	string qE13 = "";
+	string qE14 = "";
+	string qE15 = "";
+	string qE16 = "";
+	string qE17 = "";
+	string qE18 = "";
+	string qE19 = "";
+	string qE20 = "";
+	string qE21 = "";
+	string qE22 = "";
+	string qE23 = "";
+	string qE24 = "";
+	string qE25 = "";
+	string qE26 = "";
+	string qE27 = "";
+	string qE28 = "";
+	string qE29 = "";
+	string qE30 = "";
+
+
+	/*E30.changeCertainty(1);
+	C1.changeCertainty(1);
+	E3.changeCertainty(15);
+	E7.changeCertainty(0.6);
+	E8.changeCertainty(1);
+	E9.changeCertainty(1);
+	cout << endl; */
+
+	double answer;
+	//Create a program that asks user questions
+	cout << qE1 << endl;
+	cin >> answer;
+
+	if (answer == 7)
+	{
+
+		E1.changeCertainty(1);
+		cout << "You answered correctly!" << endl;
+	}
+	
+
+
 	//loopa igenom trädet, föreslå läsning
 	Node *whatToRead = A1.readNext();
 
@@ -89,13 +143,7 @@ int main()
 		cout << endl;
 	}
 
-	E30.changeCertainty(1);
-	C1.changeCertainty(1);
-	E3.changeCertainty(15);
-	E7.changeCertainty(0.6);
-	E8.changeCertainty(1);
-	E9.changeCertainty(1);
-	cout << endl;
+	
 
 	int choice = 0;
 	Node *read = nullptr;

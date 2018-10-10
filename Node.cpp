@@ -65,9 +65,13 @@ bool Node::getCompleted()
 
 void Node::checkCompleted()
 {
-	if (certainty == 1)
+	if (certainty == 1)		
 	{
 		completed = true;
+	}
+	else
+	{
+		completed = false;
 	}
 }
 
@@ -80,18 +84,18 @@ void Node::calculateCertainty()
 	}
 
 	Node *ndChild = child;
-	int nrChild = 0;
+	int nrChild = 0;		//count number of children
 	double sumCert = 0;
 
-	while (ndChild != nullptr)
+	while (ndChild != nullptr)	//visit children and its sibling until there is no more children
 	{
 		sumCert += ndChild->certainty;
 		nrChild++;
-		ndChild = ndChild->sibling;
+		ndChild = ndChild->sibling;		//go to sibling
 	}
 
-	certainty = sumCert / nrChild;
-	checkCompleted();
+	certainty = sumCert / nrChild;		//calculate certainty
+	checkCompleted();					//check if node is completed
 
 	cout << "Node " << name << " has now certainty " << setprecision(2) << certainty*100 << " %" << endl;
 
@@ -99,12 +103,12 @@ void Node::calculateCertainty()
 
 void Node::changeCertainty(double cert)
 {
-	if (child != nullptr)
+	if (child != nullptr)	//is not a leaf
 	{
 		cout << "This node is not a base and cant be changed" << endl;
 		return;
 	}
-	else if (cert < 0 || cert > 1)
+	else if (cert < 0 || cert > 1)	//wrong input
 	{
 		cout << "Invalid certanity, choose a value between 0 and 1" << endl;
 		return;
@@ -113,7 +117,7 @@ void Node::changeCertainty(double cert)
 	certainty = cert;
 	checkCompleted();
 
-	cout << "Node " << name << " has now certainty " << setprecision(2) << certainty * 100 << " %" << endl;
+	cout << "Node " << name << " has now certainty " << setprecision(2) << fixed << certainty * 100 << " %" << endl;
 
 
 	Node *par = parent;
@@ -129,29 +133,28 @@ void Node::changeCertainty(double cert)
 
 Node *Node::readNext()
 {
-	//börja på roten
 
-	//base case, det finns inga barn
+	//base case, there are no children
 	if (!completed && child == nullptr)
 	{
 		cout << "Not completed, no children - I am going to recommend this" << endl;
 		return this;
 	}
 
-	//false, gå till barn
+	//false, go to child
 	if(!completed && child != nullptr)
 	{
 		cout << "Not completed, goes to child" << endl;
 		//finns barn?
 		return child->readNext();
 	}
-	//inte completed, det finns inga barn --> den här ska rekommenderas
+	//not completed, there are no children --> recommend this
 	else if(!completed)
 	{
 		cout << "Not completed, no children - I am going to recommend this" << endl;
 		return this;
 	} 
-	//true, det finns syskon
+	//true, there are siblings
 	else if (completed && sibling != nullptr)
 	{
 		cout << "Completed, goes to sibling" << endl;
@@ -160,7 +163,7 @@ Node *Node::readNext()
 	
 	else if (sibling == nullptr && completed)
 	{
-		//true, det finns inga syskon --> hela boken är utläst
+		//true, there are no siblings --> the whole book is finished
 		cout << "Completed, no sibligs, you know the whole book" << endl;
 		return nullptr;
 	} 
