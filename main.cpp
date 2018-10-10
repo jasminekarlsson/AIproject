@@ -76,36 +76,45 @@ int main()
 	Node E29("E29", false, 0.0, &D10);
 	Node E30("E30", false, 0.0, &D10);
 
-	string qE1 = "3 + X = 10. X = ?";
-	string qE2 = "4 + X = 10. X = ?";
-	string qE3 = "5 + X = 10. X = ?";
-	string qE4 = "";
-	string qE5 = "";
-	string qE6 = "";
-	string qE7 = "";
-	string qE8 = "";
-	string qE9 = "";
-	string qE10 = "";
-	string qE11 = "";
-	string qE12 = "";
-	string qE13 = "";
-	string qE14 = "";
-	string qE15 = "";
-	string qE16 = "";
-	string qE17 = "";
-	string qE18 = "";
-	string qE19 = "";
-	string qE20 = "";
-	string qE21 = "";
-	string qE22 = "";
-	string qE23 = "";
-	string qE24 = "";
-	string qE25 = "";
-	string qE26 = "";
-	string qE27 = "";
-	string qE28 = "";
-	string qE29 = "";
-	string qE30 = "";
+	string qE1 = "3 + X = 10. X = ?";		//7
+	string qE2 = "4 + X = 10. X = ?";		//6
+	string qE3 = "5 + X = 10. X = ?";		//5
+
+	string qE4 = "23 + 15 = ?";				//38
+	string qE5 = "58 + 37 = ?";				//95
+	string qE6 = "12 + 90 = ?";				//102
+
+	string qE7 = "10 - 5 = ?";				//5
+	string qE8 = "10 - 2 = ?";				//8
+	string qE9 = "10 - 8 = ?";				//2
+
+	string qE10 = "73 - 51 = ?";			//22
+	string qE11 = "62 - 37 = ?";			//25
+	string qE12 = "98 - 17 = ?";			//81
+	
+	string qE13 = "2 * 2 = ?";				//4
+	string qE14 = "2 * 8 = ?";				//16
+	string qE15 = "2 * 7 = ?";				//14
+
+	string qE16 = "3 * 5 = ?";				//15
+	string qE17 = "8 * 8 = ?";				//64
+	string qE18 = "6 * 5 = ?";				//30
+
+	string qE19 = "4 * 10 = ?";				//40
+	string qE20 = "7 * 10 = ?";				//70
+	string qE21 = "10 * 10 = ?";			//100
+
+	string qE22 = "4 * 4 = ?";				//16
+	string qE23 = "3 * 6 = ?";				//18
+	string qE24 = "7 * 8 = ?";				//56
+
+	string qE25 = "10 / 5 = ?";				//2
+	string qE26 = "8 / 2 = ?";				//4
+	string qE27 = "9 / 3 = ?";				//3
+
+	string qE28 = "80 / 40 = ?";			//2
+	string qE29 = "81 / 9 = ?";				//9
+	string qE30 = "49 / 7 = ?";				//7
 
 
 	/*E30.changeCertainty(1);
