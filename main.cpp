@@ -140,7 +140,7 @@ int main()
 	E8.changeCertainty(1);
 	E9.changeCertainty(1);
 	E10.changeCertainty(1);
-	E11.changeCertainty(1);
+	E11.changeCertainty(1); 
 
 	//loop through tree, suggest reading
 	Node *whatToRead = A1.readNext();
