@@ -21,3 +21,8 @@ double Dependency::getWeight()
 {
 	return weight;
 }
+
+bool Dependency::operator<(const Dependency &first, const Dependency &second)
+{
+	return (first.getWeight() > second.getWeight());
+}

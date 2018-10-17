@@ -109,10 +109,10 @@ int main()
 
 	//Add dependencies
 	Dependency dptb2b1(&B1, 0.4);		//B2 dependent on B
-	B1.setDependency(dptb2b1);
+	B2.setDependency(dptb2b1);
 
 	Dependency dptd2d1(&D1, 0.7);		//D2 dependent on D1
-	D1.setDependency(dptd2d1);
+	D2.setDependency(dptd2d1);
 
 	Dependency dptd4d2(&D2, 0.5);		//D4 dependent on D2
 	D4.setDependency(dptd4d2);
@@ -156,17 +156,17 @@ int main()
 	}
 	 */
 
-	E1.changeCertainty(1);
-	E2.changeCertainty(1);
-	E3.changeCertainty(1);
+	E1.changeCertainty(0);
+	E2.changeCertainty(0);
+	E3.changeCertainty(0);
 	E4.changeCertainty(0);
 	E5.changeCertainty(0);
 	E6.changeCertainty(0);
-	E7.changeCertainty(1);
-	E8.changeCertainty(1);
-	E9.changeCertainty(1);
-	E10.changeCertainty(1);
-	E11.changeCertainty(1); 
+	E7.changeCertainty(0);
+	E8.changeCertainty(0);
+	E9.changeCertainty(0);
+	E10.changeCertainty(0);
+	E11.changeCertainty(0); 
 
 	//loop through tree, suggest reading
 	Node *whatToRead = A1.readNext();
@@ -238,15 +238,17 @@ int main()
 				//print node name
 				else
 				{
-					cout << "You want to learn: ";
-					learn->printName();
+					//cout << "You want to learn: ";
+					//learn->printName();
+					toRead = learn->checkDependency();
+					cout << endl << "You should read in order: " << endl;
+					for (int i = 0; i < toRead.size(); i++)
+					{
+						toRead[i].printName();
+						cout << " ";
+					}
 				}
-				toRead = learn->checkDependency();
-				cout << "you should read in order:" << endl;
-				for (int i = 0; i < toRead.size(); i++)
-				{
-					toRead[i].printName();
-				}
+				
 
 				//						--> check dependencies
 				//						--> start suggesting the highest unlearned dependency
@@ -256,6 +258,7 @@ int main()
 				
 				break;
 			default:
+				cout << "Not a valid option" << endl;
 				break;
 		}
 

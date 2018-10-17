@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip> 
+#include <algorithm>
 #include "Question.cpp"
 #include "Dependency.cpp"
 using namespace std;
@@ -26,6 +27,7 @@ class Node
 		void calculateCertainty();
 		void changeCertainty(double cer);
 		
+		bool compareWeight(Dependency first, Dependency second);
 		vector<Node> checkDependency();
         Node *readNext();
         Node *findLearnRequest(string input);

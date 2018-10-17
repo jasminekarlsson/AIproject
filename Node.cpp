@@ -139,23 +139,26 @@ void Node::changeCertainty(double cert)
 
 }
 
+bool Node::compareWeight(Dependency &first, Dependency &second)
+{
+	return (first.getWeight() > second.getWeight());
+}
+
 vector<Node> Node::checkDependency(){
 
 	vector<Node> readBefore;
 	
 	if(!dependens.empty())
 	{
-		
+		sort(dependens.begin(), dependens.end());
 		for(int i = 0; i < dependens.size(); i++)
 		{
 			if (!dependens[i].getDependent()->getCompleted())
 			{
 				//Om dependencin inte är klar, kolla dess dependencies
 				Node temp = *(dependens[i].getDependent());
-				readBefore.insert(readBefore.begin(),temp);
+				readBefore.insert(readBefore.end(),temp);
 				vector<Node> temp2 = temp.checkDependency();
-				if(!temp2.empty())
-					temp2[0].printName();
 				readBefore.insert(readBefore.begin(), temp2.begin(), temp2.end());
 			}
 		
