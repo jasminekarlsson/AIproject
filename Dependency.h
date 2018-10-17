@@ -17,7 +17,7 @@ class Dependency
 
     private:
 		Node *dependent;
-		double weight;
+		double weight;		//how well the student knows the node
 
 };
 

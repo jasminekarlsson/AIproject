@@ -106,6 +106,29 @@ int main()
 	Node E28("E28", &D10, &qE28);
 	Node E29("E29", &D10, &qE29);
 	Node E30("E30", &D10, &qE30);
+
+	//Add dependencies
+	Dependency dptb2b1(&B1, 0.4);		//B2 dependent on B
+	B1.setDependency(dptb2b1);
+
+	Dependency dptd2d1(&D1, 0.7);		//D2 dependent on D1
+	D1.setDependency(dptd2d1);
+
+	Dependency dptd4d2(&D2, 0.5);		//D4 dependent on D2
+	D4.setDependency(dptd4d2);
+
+	Dependency dptc4c3(&C3, 0.3);
+	C4.setDependency(dptc4c3);
+
+	Dependency dptd8d5(&D5, 0.4);
+	D8.setDependency(dptd8d5);
+	Dependency dptd8d6(&D6, 0.4);
+	D8.setDependency(dptd8d6);
+	Dependency dptd8d7(&D7, 0.4);
+	D8.setDependency(dptd8d7);
+
+	Dependency dptd10d9(&D9, 0.4);
+	D9.setDependency(dptd10d9);
 	
 	//A1.changeCertainty(1);
 
@@ -159,41 +182,56 @@ int main()
 
 	int choice = 0;
 	Node *read = nullptr;
+	Node *learn = nullptr;
 
-	while(choice != 3){
+	while(choice != 4){
 
 		cout << endl << endl << "-----------Choose what you want to do:-----------" << endl << "1. Check what to read next"
-			<< endl << "2. Answer next question" << endl << "3. End program" << endl;
+			<< endl << "2. Answer next question" << endl << "3. Choose what to learn" << endl << "4. End program" << endl;
 		cin >> choice;
 
 		read = A1.readNext();
 
+		string toLearn = "";	//needs to be here, otherwise crashes
+
 		switch (choice)
 		{
-		case 1:
-			int answer;
-			cout << "You should read ";
-			read->printName();
-			cout << " next." << endl;
-			break;
-		case 2:
-			read->printQuestion();
-			cout << endl;
-			cin >> answer;
+			case 1:
+				int answer;
+				cout << "You should read ";
+				read->printName();
+				cout << " next." << endl;
+				break;
+			case 2:
+				read->printQuestion();
+				cout << endl;
+				cin >> answer;
 
-			if (answer == read->getAnswer()) //Ändra till rätt svar här
-			{
-				cout << "Your answer is correct" << endl;
-				read->changeCertainty(1);
-			}
-			else
-			{
-				cout << "Your answer is incorrect." << endl;
-			}
-			break;
+				if (answer == read->getAnswer()) //Ändra till rätt svar här
+				{
+					cout << "Your answer is correct" << endl;
+					read->changeCertainty(1);
+				}
+				else
+				{
+					cout << "Your answer is incorrect." << endl;
+				}
+				break;
+			case 3: 
+				cout << "Enter which node you would like to learn.";
+				cin >> toLearn;
+				//loop through the tree, and find if there is matching string.
 
-		default:
-			break;
+				//if matching string 	--> check if learned
+				//						--> check dependencies
+				//						--> start suggesting the highest unlearned dependency
+				//						--> remember what to read in next somehow?!
+				//						--> how do we do this without messing up the pointers?
+				//						--> could we have a read-next-vector of some kind?
+				cout << "You want to learn: " << toLearn << endl;
+				break;
+			default:
+				break;
 		}
 
 		//Error when we know the whole tree (it breakes before we can exit the program)
