@@ -28,7 +28,7 @@ class Node
 		
 
         Node *readNext();
-        Node *findLearnRequest();
+        Node *findLearnRequest(string input);
         
         void printName();
         void printQuestion();
