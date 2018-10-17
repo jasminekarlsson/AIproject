@@ -1,0 +1,78 @@
+[1mdiff --git a/Node.cpp b/Node.cpp[m
+[1mindex ebcf1b8..77696ba 100644[m
+[1m--- a/Node.cpp[m
+[1m+++ b/Node.cpp[m
+[36m@@ -124,7 +124,7 @@[m [mvoid Node::changeCertainty(double cert)[m
+ [m
+ 	certainty = cert;[m
+ 	checkCompleted();[m
+[31m-[m
+[32m+[m	[32mcout << "Hej!" << endl;[m
+ 	cout << "Node " << name << " has now certainty " << setprecision(2) << fixed << certainty * 100 << " %" << endl;[m
+ [m
+ [m
+[1mdiff --git a/main.cpp b/main.cpp[m
+[1mindex 5d9791d..87e317b 100644[m
+[1m--- a/main.cpp[m
+[1m+++ b/main.cpp[m
+[36m@@ -168,34 +168,36 @@[m [mint main()[m
+ [m
+ 		read = A1.readNext();[m
+ [m
+[31m-		switch (choice)[m
+[32m+[m		[32mif(read != nullptr)[m
+ 		{[m
+[31m-		case 1:[m
+[31m-			int answer;[m
+[31m-			cout << "You should read ";[m
+[31m-			read->printName();[m
+[31m-			cout << " next." << endl;[m
+[31m-			break;[m
+[31m-		case 2:[m
+[31m-			read->printQuestion();[m
+[31m-			cout << endl;[m
+[31m-			cin >> answer;[m
+[31m-[m
+[31m-			if (answer == read->getAnswer()) //Ändra till rätt svar här[m
+[32m+[m			[32mswitch (choice)[m
+ 			{[m
+[31m-				cout << "Your answer is correct" << endl;[m
+[31m-				read->changeCertainty(1);[m
+[32m+[m			[32mcase 1:[m
+[32m+[m				[32mint answer;[m
+[32m+[m				[32mcout << "You should read ";[m
+[32m+[m				[32mread->printName();[m
+[32m+[m				[32mcout << " next." << endl;[m
+[32m+[m				[32mbreak;[m
+[32m+[m			[32mcase 2:[m
+[32m+[m				[32mread->printQuestion();[m
+[32m+[m				[32mcout << endl;[m
+[32m+[m				[32mcin >> answer;[m
+[32m+[m
+[32m+[m				[32mif (answer == read->getAnswer()) //Ändra till rätt svar här[m
+[32m+[m				[32m{[m
+[32m+[m					[32mcout << "Your answer is correct" << endl;[m
+[32m+[m					[32mread->changeCertainty(1);[m
+[32m+[m				[32m}[m
+[32m+[m				[32melse[m
+[32m+[m				[32m{[m
+[32m+[m					[32mcout << "Your answer is incorrect." << endl;[m
+[32m+[m				[32m}[m
+[32m+[m				[32mbreak;[m
+[32m+[m
+[32m+[m			[32mdefault:[m
+[32m+[m				[32mbreak;[m
+ 			}[m
+[31m-			else[m
+[31m-			{[m
+[31m-				cout << "Your answer is incorrect." << endl;[m
+[31m-			}[m
+[31m-			break;[m
+[31m-[m
+[31m-		default:[m
+[31m-			break;[m
+ 		}[m
+[31m-[m
+ 		//Error when we know the whole tree (it breakes before we can exit the program)[m
+ [m
+ 	}[m

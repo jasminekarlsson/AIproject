@@ -139,6 +139,33 @@ void Node::changeCertainty(double cert)
 
 }
 
+vector<Node> Node::checkDependency(){
+
+	vector<Node> readBefore;
+	
+	if(!dependens.empty())
+	{
+		
+		for(int i = 0; i < dependens.size(); i++)
+		{
+			/*if (dependens[i].getDependent()->getCompleted())
+			{
+				//Om dependencin inte är klar, kolla dess dependencies
+				readBefore.insert(*dependens[i].getDependent());
+				//readBefore.insert(&dependens[i].getDependent()->checkDependency());
+			}
+			else
+			{
+				//Om den är klar, kolla nästa dependency
+				
+			}*/
+		}
+
+	}
+
+	return readBefore;
+}
+
 Node *Node::readNext()
 {
 
@@ -215,6 +242,7 @@ Node *Node::findLearnRequest(string input)
 	cout << "Why are you even here?" << endl;
 	return nullptr;
 }
+
 
 void Node::printName()
 {
