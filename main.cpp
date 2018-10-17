@@ -198,69 +198,78 @@ int main()
 		string toLearn = "";	//needs to be here, otherwise crashes
 		vector<Node> toRead;
 		//check if coice is an int!
-
-		switch (choice)
+		/*if(choice != int(choice))
 		{
-			case 1:
-				int answer;
-				cout << "You should read ";
-				read->printName();
-				cout << " next." << endl;
-				break;
-			case 2:
-				read->printQuestion();
-				cout << endl;
-				cin >> answer;
 
-				if (answer == read->getAnswer()) //Ändra till rätt svar här
-				{
-					cout << "Your answer is correct" << endl;
-					read->changeCertainty(1);
-				}
-				else
-				{
-					cout << "Your answer is incorrect." << endl;
-				}
-				break;
-			case 3: 
-				learn = &A1;
-				cout << "Enter which node you would like to learn.";
-				cin >> toLearn;
-				//loop through the tree, and find if there is matching string.
+			cout << "Not a valid input, try again." << endl;
 
-				//if matching string 	--> check if exists
-				learn = learn->findLearnRequest(toLearn);
-				//find if the string matches something
-				if(learn == nullptr)	//if not, say that it doesn't exist
-				{
-					cout << "There is no such thing." << endl;
-				}
-				//print node name
-				else
-				{
-					//cout << "You want to learn: ";
-					//learn->printName();
-					toRead = learn->checkDependency();
-					cout << endl << "You should read in order: " << endl;
-					for (int i = 0; i < toRead.size(); i++)
+		else
+		{*/
+
+			switch (choice)
+			{
+				case 1:
+					int answer;
+					cout << "You should read ";
+					read->printName();
+					cout << " next." << endl;
+					break;
+				case 2:
+					read->printQuestion();
+					cout << endl;
+					cin >> answer;
+
+					if (answer == read->getAnswer()) //Ändra till rätt svar här
 					{
-						toRead[i].printName();
-						cout << " ";
+						cout << "Your answer is correct" << endl;
+						read->changeCertainty(1);
 					}
-				}
-				
+					else
+					{
+						cout << "Your answer is incorrect." << endl;
+					}
+					break;
+				case 3: 
+					learn = &A1;
+					cout << "Enter which node you would like to learn.";
+					cin >> toLearn;
+					//loop through the tree, and find if there is matching string.
 
-				//						--> check dependencies
-				//						--> start suggesting the highest unlearned dependency
-				//						--> remember what to read in next somehow?!
-				//						--> how do we do this without messing up the pointers?
-				//						--> could we have a read-next-vector of some kind?
-				
-				break;
-			default:
-				cout << "Not a valid option" << endl;
-				break;
-		}
+					//if matching string 	--> check if exists
+					learn = learn->findLearnRequest(toLearn);
+					//find if the string matches something
+					if(learn == nullptr)	//if not, say that it doesn't exist
+					{
+						cout << "There is no such thing." << endl;
+					}
+					//print node name
+					else
+					{
+						cout << "You want to learn: ";
+						learn->printName();
+						toRead = learn->checkDependency();
+						cout << "you should read in order:" << endl;
+						for (int i = 0; i < toRead.size(); i++)
+						{
+							toRead[i].printName();
+						}
+					}
+					
+
+					//						--> check dependencies
+					//						--> start suggesting the highest unlearned dependency
+					//						--> remember what to read in next somehow?!
+					//						--> how do we do this without messing up the pointers?
+					//						--> could we have a read-next-vector of some kind?
+					
+					break;
+				default:
+					break;
+
+			}
+		//}
+
+>>>>>>> 63805d509b6d0723635f18ab3f33a56cedfaa80d
 
 		//Error when we know the whole tree (it breakes before we can exit the program)
 
