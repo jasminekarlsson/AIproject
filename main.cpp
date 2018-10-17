@@ -129,6 +129,9 @@ int main()
 
 	Dependency dptd10d9(&D9, 0.4);
 	D9.setDependency(dptd10d9);
+
+	Dependency dptd6d2(&D2, 0.7);
+	D6.setDependency(dptd6d2);
 	
 	//A1.changeCertainty(1);
 
@@ -156,9 +159,9 @@ int main()
 	E1.changeCertainty(1);
 	E2.changeCertainty(1);
 	E3.changeCertainty(1);
-	E4.changeCertainty(1);
-	E5.changeCertainty(1);
-	E6.changeCertainty(1);
+	E4.changeCertainty(0);
+	E5.changeCertainty(0);
+	E6.changeCertainty(0);
 	E7.changeCertainty(1);
 	E8.changeCertainty(1);
 	E9.changeCertainty(1);
@@ -193,12 +196,12 @@ int main()
 		read = A1.readNext();
 
 		string toLearn = "";	//needs to be here, otherwise crashes
-
+		vector<Node> toRead;
 		//check if coice is an int!
 		/*if(choice != int(choice))
 		{
+
 			cout << "Not a valid input, try again." << endl;
-		}
 
 		else
 		{*/
@@ -245,17 +248,26 @@ int main()
 						cout << "You want to learn: ";
 						learn->printName();
 					}
-					
+					toRead = learn->checkDependency();
+					cout << "you should read in order:" << endl;
+					for (int i = 0; i < toRead.size(); i++)
+					{
+						toRead[i].printName();
+					}
+
 					//						--> check dependencies
 					//						--> start suggesting the highest unlearned dependency
 					//						--> remember what to read in next somehow?!
+					//						--> how do we do this without messing up the pointers?
+					//						--> could we have a read-next-vector of some kind?
 					
 					break;
 				default:
 					break;
-			}
 
+			}
 		//}
+
 
 		//Error when we know the whole tree (it breakes before we can exit the program)
 

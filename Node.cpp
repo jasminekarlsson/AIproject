@@ -148,17 +148,17 @@ vector<Node> Node::checkDependency(){
 		
 		for(int i = 0; i < dependens.size(); i++)
 		{
-			/*if (dependens[i].getDependent()->getCompleted())
+			if (!dependens[i].getDependent()->getCompleted())
 			{
 				//Om dependencin inte är klar, kolla dess dependencies
-				readBefore.insert(*dependens[i].getDependent());
-				//readBefore.insert(&dependens[i].getDependent()->checkDependency());
+				Node temp = *(dependens[i].getDependent());
+				readBefore.insert(readBefore.begin(),temp);
+				vector<Node> temp2 = temp.checkDependency();
+				if(!temp2.empty())
+					temp2[0].printName();
+				readBefore.insert(readBefore.begin(), temp2.begin(), temp2.end());
 			}
-			else
-			{
-				//Om den är klar, kolla nästa dependency
-				
-			}*/
+		
 		}
 
 	}
