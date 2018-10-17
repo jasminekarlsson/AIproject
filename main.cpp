@@ -239,7 +239,6 @@ int main()
 					learn->printName();
 				}
 				
-
 				//						--> check dependencies
 				//						--> start suggesting the highest unlearned dependency
 				//						--> remember what to read in next somehow?!
