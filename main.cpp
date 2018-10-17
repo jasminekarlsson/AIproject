@@ -194,6 +194,8 @@ int main()
 
 		string toLearn = "";	//needs to be here, otherwise crashes
 
+		//check if coice is an int!
+
 		switch (choice)
 		{
 			case 1:
@@ -218,17 +220,32 @@ int main()
 				}
 				break;
 			case 3: 
+				learn = &A1;
 				cout << "Enter which node you would like to learn.";
 				cin >> toLearn;
 				//loop through the tree, and find if there is matching string.
 
-				//if matching string 	--> check if learned
+				//if matching string 	--> check if exists
+				learn = learn->findLearnRequest(toLearn);
+				//find if the string matches something
+				if(learn == nullptr)	//if not, say that it doesn't exist
+				{
+					cout << "There is no such thing." << endl;
+				}
+				//print node name
+				else
+				{
+					cout << "You want to learn: ";
+					learn->printName();
+				}
+				
+
 				//						--> check dependencies
 				//						--> start suggesting the highest unlearned dependency
 				//						--> remember what to read in next somehow?!
 				//						--> how do we do this without messing up the pointers?
 				//						--> could we have a read-next-vector of some kind?
-				cout << "You want to learn: " << toLearn << endl;
+				
 				break;
 			default:
 				break;
