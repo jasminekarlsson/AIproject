@@ -12,7 +12,6 @@ class Dependency
 
         Node *getDependent();
         double getWeight();
-		bool operator<(const Dependency &first, const Dependency &second);
 
     protected:
 

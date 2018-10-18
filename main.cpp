@@ -122,7 +122,7 @@ int main()
 
 	Dependency dptd8d5(&D5, 0.4);
 	D8.setDependency(dptd8d5);
-	Dependency dptd8d6(&D6, 0.4);
+	Dependency dptd8d6(&D6, 0.8);
 	D8.setDependency(dptd8d6);
 	Dependency dptd8d7(&D7, 0.4);
 	D8.setDependency(dptd8d7);
@@ -156,9 +156,9 @@ int main()
 	}
 	 */
 
-	E1.changeCertainty(0);
-	E2.changeCertainty(0);
-	E3.changeCertainty(0);
+	E1.changeCertainty(1);
+	E2.changeCertainty(1);
+	/*E3.changeCertainty(1);
 	E4.changeCertainty(0);
 	E5.changeCertainty(0);
 	E6.changeCertainty(0);
@@ -166,7 +166,7 @@ int main()
 	E8.changeCertainty(0);
 	E9.changeCertainty(0);
 	E10.changeCertainty(0);
-	E11.changeCertainty(0); 
+	E11.changeCertainty(0); */
 
 	//loop through tree, suggest reading
 	Node *whatToRead = A1.readNext();
@@ -268,8 +268,6 @@ int main()
 
 			}
 		//}
-
->>>>>>> 63805d509b6d0723635f18ab3f33a56cedfaa80d
 
 		//Error when we know the whole tree (it breakes before we can exit the program)
 

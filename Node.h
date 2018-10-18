@@ -27,7 +27,6 @@ class Node
 		void calculateCertainty();
 		void changeCertainty(double cer);
 		
-		bool compareWeight(Dependency first, Dependency second);
 		vector<Node> checkDependency();
         Node *readNext();
         Node *findLearnRequest(string input);

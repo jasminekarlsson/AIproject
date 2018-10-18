@@ -139,7 +139,7 @@ void Node::changeCertainty(double cert)
 
 }
 
-bool Node::compareWeight(Dependency &first, Dependency &second)
+bool compareWeight(Dependency &first, Dependency &second)
 {
 	return (first.getWeight() > second.getWeight());
 }
@@ -150,7 +150,7 @@ vector<Node> Node::checkDependency(){
 	
 	if(!dependens.empty())
 	{
-		sort(dependens.begin(), dependens.end());
+		sort(dependens.begin(), dependens.end(), compareWeight); 
 		for(int i = 0; i < dependens.size(); i++)
 		{
 			if (!dependens[i].getDependent()->getCompleted())
