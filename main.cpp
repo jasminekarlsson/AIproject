@@ -135,6 +135,8 @@ int main()
 
 	E1.changeCertainty(1);
 	E2.changeCertainty(1);
+	E19.changeCertainty(1);
+	E20.changeCertainty(1);
 	/*E3.changeCertainty(1);
 	E4.changeCertainty(0);
 	E5.changeCertainty(0);
@@ -163,7 +165,7 @@ int main()
 	int choice = 0;
 	Node *read = nullptr;
 	Node *learn = nullptr;
-	vector<Node> toRead;
+	vector<Node *> toRead;
 
 	while(choice != 4){
 
@@ -191,7 +193,7 @@ int main()
 					cout << "You should read ";
 					if(!toRead.empty())
 					{
-						toRead[0].printName();
+						toRead[0]->printName();
 					}
 					else
 					{
@@ -203,7 +205,7 @@ int main()
 				case 2:
 					if(!toRead.empty())	//om det finns ett föreslaget område att läsa -> svara på fråga därifrån
 					{
-						Node *temp = toRead[0].getChild();
+						Node *temp = toRead[0]->getChild();
 						while(temp->getCompleted())
 						{
 							temp = temp->getSibling();
@@ -216,9 +218,9 @@ int main()
 						{
 							cout << "Your answer is correct" << endl;
 							temp->changeCertainty(1);
-							if(toRead[0].getCompleted())		//WHYY?!
+
+							if(toRead[0]->getCompleted())
 							{
-								cout << "Removes first element" << endl;
 								toRead.erase(toRead.begin());
 							}
 						}
@@ -275,7 +277,7 @@ int main()
 							for (int i = 0; i < toRead.size(); i++)
 							{
 								cout << " ";
-								toRead[i].printName();
+								toRead[i]->printName();
 							}
 							cout << " " << toLearn << endl;
 						}

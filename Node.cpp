@@ -144,9 +144,9 @@ bool compareWeight(Dependency &first, Dependency &second)
 	return (first.getWeight() < second.getWeight());
 }
 
-vector<Node> Node::checkDependency(){
+vector<Node *> Node::checkDependency(){
 
-	vector<Node> readBefore;
+	vector<Node *> readBefore;
 	
 	if(!dependens.empty())
 	{
@@ -156,9 +156,9 @@ vector<Node> Node::checkDependency(){
 			if (!dependens[i].getDependent()->getCompleted())
 			{
 				//Om dependencin inte är klar, kolla dess dependencies
-				Node temp = *(dependens[i].getDependent());
+				Node *temp = dependens[i].getDependent();
 				readBefore.insert(readBefore.begin(),temp);
-				vector<Node> temp2 = temp.checkDependency();
+				vector<Node *> temp2 = temp->checkDependency();
 				readBefore.insert(readBefore.begin(), temp2.begin(), temp2.end());
 				
 			}

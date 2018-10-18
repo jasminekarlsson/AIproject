@@ -27,7 +27,7 @@ class Node
 		void calculateCertainty();
 		void changeCertainty(double cer);
 		
-		vector<Node> checkDependency();
+		vector<Node *> checkDependency();
         Node *readNext();
         Node *findLearnRequest(string input);
         
