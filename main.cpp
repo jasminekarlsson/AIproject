@@ -163,6 +163,7 @@ int main()
 	int choice = 0;
 	Node *read = nullptr;
 	Node *learn = nullptr;
+	vector<Node> toRead;
 
 	while(choice != 4){
 
@@ -173,7 +174,7 @@ int main()
 		read = A1.readNext();
 
 		string toLearn = "";	//needs to be here, otherwise crashes
-		vector<Node> toRead;
+		
 		//check if coice is an int!
 		/*if(choice != int(choice))
 		{
@@ -188,23 +189,64 @@ int main()
 				case 1:
 					int answer;
 					cout << "You should read ";
-					read->printName();
-					cout << " next." << endl;
-					break;
-				case 2:
-					read->printQuestion();
-					cout << endl;
-					cin >> answer;
-
-					if (answer == read->getAnswer()) //Ändra till rätt svar här
+					if(!toRead.empty())
 					{
-						cout << "Your answer is correct" << endl;
-						read->changeCertainty(1);
+						toRead[0].printName();
 					}
 					else
 					{
-						cout << "Your answer is incorrect." << endl;
+						read->getParent()->printName();
 					}
+					
+					cout << " next." << endl;
+					break;
+				case 2:
+					if(!toRead.empty())	//om det finns ett föreslaget område att läsa -> svara på fråga därifrån
+					{
+						Node *temp = toRead[0].getChild();
+						while(temp->getCompleted())
+						{
+							temp = temp->getSibling();
+						}
+						temp->printQuestion();
+						cout << endl;
+						cin >> answer;
+
+						if (answer == temp->getAnswer()) //Ändra till rätt svar här
+						{
+							cout << "Your answer is correct" << endl;
+							temp->changeCertainty(1);
+							if(toRead[0].getCompleted())		//WHYY?!
+							{
+								cout << "Removes first element" << endl;
+								toRead.erase(toRead.begin());
+							}
+						}
+						else
+						{
+							cout << "Your answer is incorrect." << endl;
+						}
+					}
+					else
+					{
+						read->printQuestion();
+						cout << endl;
+						cin >> answer;
+
+						if (answer == read->getAnswer()) //Ändra till rätt svar här
+						{
+							cout << "Your answer is correct" << endl;
+							read->changeCertainty(1);
+						}
+						else
+						{
+							cout << "Your answer is incorrect." << endl;
+						}
+					}
+					
+					
+
+					
 					break;
 				case 3: 
 					learn = &A1;
