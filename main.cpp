@@ -120,11 +120,11 @@ int main()
 	Dependency dptc4c3(&C3, 0.3);
 	C4.setDependency(dptc4c3);
 
-	Dependency dptd8d5(&D5, 0.9);
+	Dependency dptd8d5(&D5, 0.6);
 	D8.setDependency(dptd8d5);
-	Dependency dptd8d6(&D6, 0.8);
+	Dependency dptd8d6(&D6, 0.7);
 	D8.setDependency(dptd8d6);
-	Dependency dptd8d7(&D7, 0.4);
+	Dependency dptd8d7(&D7, 0.8);
 	D8.setDependency(dptd8d7);
 
 	Dependency dptd10d9(&D9, 0.4);

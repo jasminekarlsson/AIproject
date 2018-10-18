@@ -141,7 +141,7 @@ void Node::changeCertainty(double cert)
 
 bool compareWeight(Dependency &first, Dependency &second)
 {
-	return (first.getWeight() > second.getWeight());
+	return (first.getWeight() < second.getWeight());
 }
 
 vector<Node> Node::checkDependency(){
@@ -157,9 +157,10 @@ vector<Node> Node::checkDependency(){
 			{
 				//Om dependencin inte är klar, kolla dess dependencies
 				Node temp = *(dependens[i].getDependent());
-				readBefore.insert(readBefore.end(),temp);
+				readBefore.insert(readBefore.begin(),temp);
 				vector<Node> temp2 = temp.checkDependency();
 				readBefore.insert(readBefore.begin(), temp2.begin(), temp2.end());
+				
 			}
 		
 		}
