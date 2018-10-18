@@ -128,7 +128,7 @@ int main()
 	D8.setDependency(dptd8d7);
 
 	Dependency dptd10d9(&D9, 0.4);
-	D9.setDependency(dptd10d9);
+	D10.setDependency(dptd10d9);
 
 	Dependency dptd6d2(&D2, 0.7);
 	D6.setDependency(dptd6d2);
@@ -223,12 +223,21 @@ int main()
 					else
 					{
 						toRead = learn->checkDependency();
-						cout << "you should read in order:";
-						for (int i = 0; i < toRead.size(); i++)
+						if(toRead.empty())
 						{
-							cout << " ";
-							toRead[i].printName();
+							cout << "You should read: " << toLearn << endl;
 						}
+						else
+						{
+							cout << "You should read in order:";
+							for (int i = 0; i < toRead.size(); i++)
+							{
+								cout << " ";
+								toRead[i].printName();
+							}
+							cout << " " << toLearn << endl;
+						}
+						
 					}
 					
 
