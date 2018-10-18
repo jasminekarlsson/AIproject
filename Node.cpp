@@ -166,7 +166,7 @@ vector<Node *> Node::checkDependency(){
 		}
 
 	}
-
+	
 	return readBefore;
 }
 
@@ -210,8 +210,6 @@ Node *Node::findLearnRequest(string input)
 	//base case, there are no children (the name we are searching for)
 	if (name.compare(input) == 0)
 	{
-		printName();
-		cout << endl;
 		return this;
 	}
 

@@ -252,7 +252,7 @@ int main()
 					break;
 				case 3: 
 					learn = &A1;
-					cout << "Enter which node you would like to learn. ";
+					cout << "Enter which node you would like to learn. " << endl;
 					cin >> toLearn;
 					//loop through the tree, and find if there is matching string.
 
@@ -267,9 +267,11 @@ int main()
 					else
 					{
 						toRead = learn->checkDependency();
+						if(!learn->getCompleted())
+							toRead.insert(toRead.end(), learn);
 						if(toRead.empty())
 						{
-							cout << "You should read: " << toLearn << endl;
+							cout << "You have already completed " << toLearn << endl;
 						}
 						else
 						{
@@ -279,7 +281,7 @@ int main()
 								cout << " ";
 								toRead[i]->printName();
 							}
-							cout << " " << toLearn << endl;
+
 						}
 						
 					}
