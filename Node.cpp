@@ -217,7 +217,6 @@ Node *Node::findLearnRequest(string input)
 	//false, go to children 		(not the name we are searching for)
 	if(name.compare(input) != 0 && child != nullptr)
 	{
-		cout << "down" << endl;
 		//finns barn?
 		Node *temp = child->findLearnRequest(input);
 		if(temp != nullptr)
@@ -228,21 +227,13 @@ Node *Node::findLearnRequest(string input)
 	//there are siblings	(but still no name)
 	if (name.compare(input) != 0 && sibling != nullptr)
 	{
-		cout << "right" << endl;
 		Node *temp2 = sibling->findLearnRequest(input);
 		if(temp2 != nullptr)
 		{
 			return temp2;
 		}
 	}
-	/*else if (sibling == nullptr && name.compare(input) != 0)		//no siblings, but not found the name
-	{
-		//true, there are no siblings --> the whole book is finished
-		cout << "No such node exists in this book, sadface" << endl;
-		return nullptr;
-	}  */
-	
-	cout << "Why are you even here?" << endl;
+
 	return nullptr;
 }
 

@@ -120,7 +120,7 @@ int main()
 	Dependency dptc4c3(&C3, 0.3);
 	C4.setDependency(dptc4c3);
 
-	Dependency dptd8d5(&D5, 0.4);
+	Dependency dptd8d5(&D5, 0.9);
 	D8.setDependency(dptd8d5);
 	Dependency dptd8d6(&D6, 0.8);
 	D8.setDependency(dptd8d6);
@@ -132,29 +132,6 @@ int main()
 
 	Dependency dptd6d2(&D2, 0.7);
 	D6.setDependency(dptd6d2);
-	
-	//A1.changeCertainty(1);
-
-	/*E30.changeCertainty(1);
-	C1.changeCertainty(1);
-	E3.changeCertainty(15);
-	E7.changeCertainty(0.6);
-	E8.changeCertainty(1);
-	E9.changeCertainty(1);
-	cout << endl; */
-
-	/* double answer;
-	//Create a program that asks user questions
-	cout << qE1 << endl;
-	cin >> answer;
-
-	if (answer == 7)
-	{
-
-		E1.changeCertainty(1);
-		cout << "You answered correctly!" << endl;
-	}
-	 */
 
 	E1.changeCertainty(1);
 	E2.changeCertainty(1);
@@ -231,7 +208,7 @@ int main()
 					break;
 				case 3: 
 					learn = &A1;
-					cout << "Enter which node you would like to learn.";
+					cout << "Enter which node you would like to learn. ";
 					cin >> toLearn;
 					//loop through the tree, and find if there is matching string.
 
@@ -245,12 +222,11 @@ int main()
 					//print node name
 					else
 					{
-						cout << "You want to learn: ";
-						learn->printName();
 						toRead = learn->checkDependency();
-						cout << "you should read in order:" << endl;
+						cout << "you should read in order:";
 						for (int i = 0; i < toRead.size(); i++)
 						{
+							cout << " ";
 							toRead[i].printName();
 						}
 					}
